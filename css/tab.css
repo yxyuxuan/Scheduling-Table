@@ -4,8 +4,9 @@
     margin:0;
 
 }
-html,body{
+html{
     width:100%;
+    position: relative;
 }
 
 #tab1{
@@ -246,5 +247,3 @@ footer{
     text-align:center;
     position:absolute;
 }
-
-
