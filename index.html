@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>智能排班表</title>
-    <script src="js/jquery-2.1.4.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/vue.js"></script>
-    <script src="js/tab.js"></script>
-    <link href="css/tab.css" rel="stylesheet">
+    <link rel="icon" href="./images/icon.ico"/>
     <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/tab.css" rel="stylesheet">
 </head>
 
 <body data-spy="scroll" data-target=".navbar">
@@ -56,18 +53,17 @@
         </div>
         <table id="tab1" cellpadding="1" cellspacing="1" border="3">
             <thead>
-                <tr class="head"><td v-for="style in styles">{{style}}</td></tr>
+                <tr class="head" class="th"><td v-for="style in styles">{{style}}</td></tr>
             </thead>
             <tbody id="rows">
                 <tr id="tr" v-for="person in persons">
-                    <td><input type="checkbox" class='chk' style="width:40px;"/></td>
-                    <td><input v-model="person.name" class="addInput"></td>
-                    <td><input v-model="person.depart" class="addInput"></td>
-                    <td class="tdContent" v-for="position in person.positions"><a @click="changePositions(position)" :style="position.enabled ? 'color: #ff0000' : 'color: #00ff00' ">{{position.enabled}}</a></td>
+                    <td class="td1"><input type="checkbox" class='chk'/></td>
+                    <td class="td2"><input v-model="person.name" class="addInput"></td>
+                    <td class="td3"><input v-model="person.depart" class="addInput" ></td>
+                    <td class="td4" v-for="position in person.positions"><a @click="changePositions(position)" :style="position.enabled ? 'color: #ff0000' : 'color: #00ff00' ">{{position.enabled}}</a></td>
                 </tr>
             </tbody>
         </table>
-
     </section><br/><br/><br/><br/>
 
 
@@ -81,8 +77,8 @@
         </div>
         <table id="tab2" cellpadding="2" cellspacing="1" border="3">
             <thead class="head">
-                <tr><th rowspan="2">月份：{{getMonths()}}月</th><th id="th" v-for="n in getDays()">{{n}}日</th><th rowspan="2">工作：</th><th rowspan="2">休息：</th></tr>
-                <tr><th v-for="n in getDays()">{{getWeeks(n)}}</th></tr>
+                <tr><th rowspan="2" class="cen">月份：{{getMonths()}}月</th><th id="th" v-for="n in getDays()" class="th cen">{{n}}日</th><th rowspan="2" class="cen">工作：</th><th rowspan="2" class="cen">休息：</th></tr>
+                <tr><th v-for="n in getDays()" class="th cen">{{getWeeks(n)}}</th></tr>
             </thead>
             <tbody>
                 <tr v-for="person in persons">
@@ -104,41 +100,40 @@
         </div>
         <table id="tab3" cellpadding="2" cellspacing="1" border="3" >
             <thead class="head">
-                <tr>
-                    <th rowspan="2">月份：{{getMonths()}}月</th>
-                    <th rowspan="2" style="text-align: center">部门：</th>
-                    <th v-for="n in getDays()" style="text-align: center">{{n}}日</th>
+                <tr class="th">
+                    <th rowspan="2" >月份：{{getMonths()}}月</th>
+                    <th rowspan="2" class="cen">部门：</th>
+                    <th v-for="n in getDays()" class="cen">{{n}}日</th>
                     <th rowspan="2">工作：</th>
                     <th rowspan="2">休息：</th>
                 </tr>
-                <tr><th v-for="n in getDays()" style="text-align: center">{{getWeeks(n)}}</th></tr>
+                <tr class="th"><th v-for="n in getDays()" class="cen">{{getWeeks(n)}}</th></tr>
             </thead>
             <tbody>
                 <tr v-for="(person,pidx) in persons">
-                    <td><input v-model="person.name" class="addInput" style="width:57px;"></td>
-                    <td><input v-model="person.depart" class="addInput" style="width:57px;"></td>
-                    <td v-for="(day,didx) in person.days" style="width:auto;height: 25px">
-                        <!--<input type="text" id="sBox" @click="showBox(pidx, didx)" class="addInput" :value="day.jobs.join(',')" />-->
-                        <textarea class="addInput" @click="showBox(pidx, didx)" style="text-align: left">{{day.jobs.join(',')}}</textarea>
+                    <td class="tw"><input v-model="person.name" class="addInput"></td>
+                    <td class="tw"><input v-model="person.depart" class="addInput"></td>
+                    <td class="tdc" v-for="(day,didx) in person.days">
+                        <textarea  @click="showBox(pidx, didx)" class="addInput">{{day.jobs.join(',')}}</textarea>
                         <div :id="'box' + pidx + '_' +  didx" class="box">
                             <label v-for="pos in filterEnablePositions(person.positions)"><input class="chBo" type="checkbox" :value="pos.name" />{{pos.name}}</label><br/>
                             <input id="submit" type="button" value="提交" @click="submitBox(day, pidx, didx)"/>
                         </div>
                     </td>
-                    <td>{{getWorkDays(person)}}天</td>
-                    <td>{{getDays()-getWorkDays(person)}}天</td>
+                    <td  class="font">{{getWorkDays(person)}}天</td>
+                    <td  class="font">{{getDays()-getWorkDays(person)}}天</td>
                 </tr>
                 <tr><td rowspan="11" colspan="2" >工作统计</td></tr>
-                <tr><td v-for="n in getDays()">副班：{{getJobCount(n,"副班")}}人</td></tr>
-                <tr><td v-for="n in getDays()">正常上传：{{getJobCount(n,"正常上传")}}人</td></tr>
-                <tr><td v-for="n in getDays()">正常初审：{{getJobCount(n,"正常初审")}}人</td></tr>
-                <tr><td v-for="n in getDays()">正常终审：{{getJobCount(n,"正常终审")}}人</td></tr>
-                <tr><td v-for="n in getDays()">历史数据：{{getJobCount(n,"历史数据")}}人</td></tr>
-                <tr><td v-for="n in getDays()">手工采集：{{getJobCount(n,"手工采集")}}人</td></tr>
-                <tr><td v-for="n in getDays()">修改库文件：{{getJobCount(n,"修改库文件")}}人</td></tr>
-                <tr><td v-for="n in getDays()">库文件检查：{{getJobCount(n,"库文件检查")}}人</td></tr>
-                <tr><td v-for="n in getDays()">新闻联播监播：{{getJobCount(n,"新闻联播监播")}}人</td></tr>
-                <tr><td v-for="n in getDays()">文件监视查看：{{getJobCount(n,"文件监视查看")}}人</td></tr>
+                <tr><td v-for="n in getDays()" class="font">副班：{{getJobCount(n,"副班")}}人</td></tr>
+                <tr><td v-for="n in getDays()" class="font">正常上传：{{getJobCount(n,"正常上传")}}人</td></tr>
+                <tr><td v-for="n in getDays()" class="font">正常初审：{{getJobCount(n,"正常初审")}}人</td></tr>
+                <tr><td v-for="n in getDays()" class="font">正常终审：{{getJobCount(n,"正常终审")}}人</td></tr>
+                <tr><td v-for="n in getDays()" class="font">历史数据：{{getJobCount(n,"历史数据")}}人</td></tr>
+                <tr><td v-for="n in getDays()" class="font">手工采集：{{getJobCount(n,"手工采集")}}人</td></tr>
+                <tr><td v-for="n in getDays()" class="font">修改库文件：{{getJobCount(n,"修改库文件")}}人</td></tr>
+                <tr><td v-for="n in getDays()" class="font">库文件检查：{{getJobCount(n,"库文件检查")}}人</td></tr>
+                <tr><td v-for="n in getDays()" class="font">新闻联播监播：{{getJobCount(n,"新闻联播监播")}}人</td></tr>
+                <tr><td v-for="n in getDays()" class="font">文件监视查看：{{getJobCount(n,"文件监视查看")}}人</td></tr>
             </tbody>
         </table>
     </section><br><br/><br/><br/>
@@ -154,17 +149,19 @@
         </div>
         <table id="tab4" cellpadding="2" cellspacing="1" border="3" style="table-layout:auto">
             <thead class="head">
-                <tr><th rowspan="2" colspan="2" style="width: 90px">月份：{{getMonths()}}月</th><th v-for="n in getDays()" style="text-align: center">{{n}}日</th></tr>
-                <tr><th v-for="n in getDays()" style="text-align: center">{{getWeeks(n)}}</th></tr>
+                <tr>
+                    <td colspan="2">月份：{{getMonths()}}月</td>
+                    <td v-for="(workStyle,widX) in workStyles">{{workStyle}}</td>
+                </tr>
             </thead>
             <tbody>
-                <tr v-for="(workStyle,widX) in workStyles">
-                    <td colspan="2" style="width:150px;height:40px">{{workStyle}}</td>
-                    <td v-for="(day,didX) in getDays()" style="width: auto;height: 40px">
-                        <textarea class="addInput" @click="secShowBox(widX,didX)" style="text-align: left">{{getJobPersons(workStyle,day)}}</textarea>
-                        <!--<input type="text" class="addInput" @click="secShowBox(widX,didX)" :value="getJobPersons(workStyle,day)" style="width: inherit"/>-->
+                <tr v-for="(day,didX) in getDays()">
+                    <td class="cen">{{day}}日</td>
+                    <td class="cen">{{getWeeks(day)}}</td>
+                    <td class="tdf" v-for="(workStyle,widX) in workStyles">
+                        <textarea @click="secShowBox(widX,didX)" class="addInput">{{getJobPersons(workStyle,day)}}</textarea>
                         <div :id="'secBox'+widX+'_'+didX" class="secBox">
-                            <label v-for="n in getJobAllPersons(workStyle,day)"><input type="checkbox" :value="n" />{{n}}</label><br/>
+                            <label v-for="per in getJobAllPersons(workStyle,day)"><input type="checkbox" :value="per" />{{                         per}}</label><br/>
                             <input id="secSubmit" type="button" value="提交" @click="secSubmitBox(widX, didX,workStyle)" />
                         </div>
                     </td>
@@ -174,10 +171,11 @@
     </section>
 
 
-    <!-- footer -->
-    <footer>
+   <!-- footer -->
+    <footer class="footer">
         <p>© 2016 by yuxuan. All Rights Reserved.</p>
     </footer>
+
 
 
     <!--弹出框 -->
@@ -199,5 +197,10 @@
         </div>
     </div>
 </div>
+
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/tab.js"></script>
 </body>
 </html>

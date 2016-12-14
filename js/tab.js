@@ -309,7 +309,7 @@ $(function() {
                         }
                     }
                 }
-                return values.join(',');
+                return values.join('');
             },
 
             setJobPersons: function(workStyle, didX, values) {
@@ -388,16 +388,7 @@ $(function() {
                 var person = {
                     name: 'test',
                     depart: 'depart3',
-                    positions: [{name: '副班', enabled: true}, {name: '正常上传', enabled: false}, {
-                        name: '正常初审',
-                        enabled: false
-                    }, {name: '正常终审', enabled: false}, {name: '历史数据', enabled: false}, {
-                        name: '手工采集',
-                        enabled: false
-                    }, {name: '文件监视查看', enabled: false}, {name: '修改库文件', enabled: false}, {
-                        name: '新闻联播监播',
-                        enabled: true
-                    }, {name: '库文件检查', enabled: false}],
+                    positions: [{name: '副班', enabled: true}, {name: '正常上传', enabled: true}, {name: '正常初审', enabled: true}, {name: '正常终审', enabled: true}, {name: '历史数据', enabled: true}, {name: '手工采集', enabled: true}, {name: '文件监视查看', enabled: true}, {name: '修改库文件', enabled: true}, {name: '新闻联播监播', enabled: true}, {name: '库文件检查', enabled: true}],
                     days: []
                 };
 
@@ -469,7 +460,7 @@ $(function() {
             },
 
             getWeeks: function (i) {
-                var week_days = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+                var week_days = ['日', '一', '二', '三', '四', '五', '六'];
                 return week_days[(new Date(new Date().getFullYear(), new Date().getMonth(), i)).getDay()];
             }
         }
