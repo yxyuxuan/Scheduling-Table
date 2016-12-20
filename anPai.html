@@ -38,7 +38,9 @@
         <div class="dev">
             <input class="input" type="button" value="initData" @click="initDays()"/>&nbsp;&nbsp;
             <input class="input" type="button" value="saveData" @click="saveData()"/>&nbsp;&nbsp;
-            <input class="input" type="button" value="loadData" @click="loadData()"/>
+            <input class="input" type="button" value="loadData" @click="loadData()"/>&nbsp;&nbsp;
+            
+
         </div>
         <table id="tab3" cellpadding="2" cellspacing="1" border="3" >
             <thead class="head">
@@ -86,7 +88,8 @@
         <div class="dev">
             <input class="input" type="button" value="initData" @click="initDays()"/>&nbsp;&nbsp;
             <input class="input" type="button" value="saveData" @click="saveData()"/>&nbsp;&nbsp;
-            <input class="input" type="button" value="loadData" @click="loadData()"/>
+            <input class="input" type="button" value="loadData" @click="loadData()"/>&nbsp;&nbsp;
+
         </div>
         <table id="tab4" cellpadding="2" cellspacing="1" border="3" style="table-layout:auto">
             <thead class="head">
@@ -105,6 +108,11 @@
                         <label v-for="per in getJobAllPersons(workStyle,day)"><input type="checkbox" :value="per" />{{per}}</label><br/>
                         <input id="secSubmit" type="button" value="提交" @click="secSubmitBox(widX, didX,workStyle)" />
                     </div>
+                   <!-- <textarea @click="secShowBox(widX,didX)" class="addInput" >{{getJobPersons(workStyle,day)}}</textarea>
+                    <div :id="'secBox'+widX+'_'+didX" class="secBox">
+                        <label v-for="per in getJobAllPersons(workStyle,day)"><input type="checkbox" :value="per" />{{per}}</label><br/>
+                        <input id="secSubmit" type="button" value="提交" @click="secSubmitBox(widX, didX,workStyle)" />
+                    </div>-->
                 </td>
             </tr>
             </tbody>
@@ -140,5 +148,6 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/vue.js"></script>
 <script src="js/tab.js"></script>
+
 </body>
 </html>

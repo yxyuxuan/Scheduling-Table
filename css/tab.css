@@ -142,12 +142,12 @@ html{
     margin-bottom: 80px;
 }
 
-#person{
-    width: 70px;
+.person{
+    width:auto;
 }
 
 .tsb{
-    width:3%;
+    width:2.9%;
 }
 
 .input{
