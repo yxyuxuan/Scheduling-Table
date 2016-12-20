@@ -22,6 +22,11 @@ $(function() {
                     positions: [{name: '副班', enabled: true}, {name: '正常上传', enabled: true}, {name: '正常初审', enabled: true}, {name: '正常终审', enabled: true}, {name: '历史数据', enabled: true}, {name: '手工采集', enabled: true},{name: '文件监视查看', enabled: true},{name: '修改库文件', enabled: true},{name: '新闻联播监播', enabled: true},{name: '库文件检查', enabled: true}],
                     days: []
                 },{
+                    name: '夏云',
+                    depart: 'depart3',
+                    positions: [{name: '副班', enabled: true}, {name: '正常上传', enabled: true}, {name: '正常初审', enabled: true}, {name: '正常终审', enabled: true}, {name: '历史数据', enabled: true}, {name: '手工采集', enabled: true},{name: '文件监视查看', enabled: true},{name: '修改库文件', enabled: true},{name: '新闻联播监播', enabled: true},{name: '库文件检查', enabled: true}],
+                    days: []
+                },{
                     name: '绳颖',
                     depart: 'depart3',
                     positions: [{name: '副班', enabled: true}, {name: '正常上传', enabled: true}, {name: '正常初审', enabled: true}, {name: '正常终审', enabled: true}, {name: '历史数据', enabled: true}, {name: '手工采集', enabled: true},{name: '文件监视查看', enabled: true},{name: '修改库文件', enabled: true},{name: '新闻联播监播', enabled: true},{name: '库文件检查', enabled: true}],
@@ -224,11 +229,8 @@ $(function() {
                         };
                         this.persons[j].days.push(day);
                     }
-
-
                 }
             },
-
 
             filterEnablePositions: function (positions) {
                 return positions.filter(function (x) {

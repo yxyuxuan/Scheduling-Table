@@ -39,7 +39,7 @@ html{
      background-color: rgba(255, 242, 228, 0.31);
  }
 
-#peiZhi,#shangBan,#anPai1,#anPai2{
+#peiZhi,#shangBan{
     margin-top:90px;
     margin-left: 2px;
 
@@ -51,7 +51,6 @@ html{
     font-weight:900;
     color: #1b20d7;
 }
-
 
 .dev{
     margin-top: 15px;
@@ -113,12 +112,17 @@ html{
     background-color:  rgba(255, 242, 228, 0.31);
 }
 .td2{
-    width: 140px;
+    width: 58px;
     background-color: rgba(255, 242, 228, 0.31);
 }
 .td3{
-    width: 130px;
+    width: 50px;
     background-color: rgba(255, 242, 228, 0.31);
+
+}
+.td3 input{
+    width: inherit;
+
 }
 .td4{
     width: 120px;
@@ -130,6 +134,9 @@ html{
 #person{
     width: 70px;
 }
+.tsb{
+    width:3%;
+}
 .input{
     font-size:larger;
     font-family:"Times New Roman";
@@ -140,6 +147,11 @@ html{
 
 
 /*工作安排表1*/
+#anPai1{
+    margin-top:90px;
+    margin-left: 2px;
+}
+
 .box{
     font-size: smaller;
     height: auto;
@@ -161,55 +173,63 @@ label{margin:0;}
     text-align: left;
     font-size:1px;
     font-family:宋体,"Times New Roman", Times, serif;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 /*工作安排表2*/
 #anPai2{
-    margin-bottom:180px;
+    margin-top:150px;
+    margin-left:2px;
+    margin-bottom:300px;
 }
 .cen{
     font-size: 13px;
     text-align: center;
 }
+.cen:nth-child(1){
+    width: 80px;
+}
+.cen:nth-child(2){
+    width: 20px;
+}
 .tdf{
     height: 18px;
 }
 .tdf:nth-child(3){
-    width: 360px;
+    width: 325px;
 }
 .tdf:nth-child(4){
-    width: 135px;
+    width: 150px;
 }
 .tdf:nth-child(5){
-    width: 370px;
+    width: 355px;
 }
 .tdf:nth-child(6){
-    width: 290px;
+    width: 320px;
 }
 .tdf:nth-child(7){
-    width: 290px;
+    width: 320px;
 }
 .tdf:nth-child(8){
-    width: 70px;
+    width: 65px;
 }
 .tdf:nth-child(9){
-    width: 100px;
+    width: 110px;
 }
 .tdf:nth-child(10){
-    width: 70px;
+    width: 65px;
 }
 .tdf:nth-child(11){
-    width: 70px;
+    width: 65px;
 }
 .tdf:nth-child(12){
-    width: 70px;
+    width: 65px;
 }
 .tdf textarea{
     text-align: left;
     font-size:1px;
     font-family: 宋体,"Times New Roman", Times, serif;
-    font-weight:600;
+    font-weight:500;
 }
 .secBox{
     font-size: smaller;
@@ -222,6 +242,7 @@ label{margin:0;}
     position: absolute;
     margin-top: -3.58px;
 }
+
 textarea{
     resize:none;
     margin-bottom: 0;
