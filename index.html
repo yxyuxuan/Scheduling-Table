@@ -44,10 +44,12 @@
     <section id="peiZhi">
         <span class="tHead">人员配置表</span>
         <div class="dev">
-            <input class="input" type="button" value="增加员工" @click="addNewRow()"/>&nbsp;&nbsp;
-            <input class="input" type="button" value="删除员工" @click="removeRow()"/>&nbsp;&nbsp;
+            <input class="input" type="button" value="initData" @click="initDays()"/>&nbsp;&nbsp;
             <input class="input" type="button" value="saveData" @click="saveData()"/>&nbsp;&nbsp;
-            <input class="input" type="button" value="loadData" @click="loadData()"/>
+            <input class="input" type="button" value="loadData" @click="loadData()"/>&nbsp;&nbsp;
+            <input class="input" type="button" value="增加员工" @click="addNewRow()"/>&nbsp;&nbsp;
+            <input class="input" type="button" value="删除员工" @click="removeRow()"/>
+
         </div>
         <table id="tab1" cellpadding="1" cellspacing="1" border="3">
             <thead>
@@ -69,7 +71,7 @@
     <section id="shangBan">
         <span class="tHead">上班安排表</span>
         <div class="dev">
-            <input class="input" type="button" value="初始化" @click="initDays()"/>&nbsp;&nbsp;
+            <input class="input" type="button" value="initData" @click="initDays()"/>&nbsp;&nbsp;
             <input class="input" type="button" value="saveData" @click="saveData()"/>&nbsp;&nbsp;
             <input class="input" type="button" value="loadData" @click="loadData()"/>
         </div>

@@ -39,11 +39,6 @@ html{
      background-color: rgba(255, 242, 228, 0.31);
  }
 
-#peiZhi,#shangBan{
-    margin-top:90px;
-    margin-left: 2px;
-
-}
 
 .tHead{
     font-family: Times, serif;
@@ -92,6 +87,7 @@ html{
     padding-top:15px;
     opacity:0.85;
 }
+
 #nat{
     font-size: 22px;
     font-family:serif;
@@ -107,23 +103,32 @@ html{
 
 
 /*人员配置表*/
+#peiZhi{
+    margin-top:90px;
+    margin-left: 2px;
+}
+
 .td1{
     width: 45px;
     background-color:  rgba(255, 242, 228, 0.31);
 }
+
 .td2{
     width: 58px;
     background-color: rgba(255, 242, 228, 0.31);
 }
+
 .td3{
     width: 50px;
     background-color: rgba(255, 242, 228, 0.31);
 
 }
+
 .td3 input{
     width: inherit;
 
 }
+
 .td4{
     width: 120px;
     background-color: rgba(255, 242, 228, 0.31);
@@ -131,6 +136,11 @@ html{
 
 
 /*上班安排表*/
+#shangBan{
+    margin-top:90px;
+    margin-left: 2px;
+    margin-bottom: 120px;
+}
 #person{
     width: 70px;
 }
@@ -165,10 +175,15 @@ html{
 }
 
 label{margin:0;}
+
 .tw  {width: 57px;}
+
 .tw input{font-size:smaller;}
+
 .font{font-size: smaller;}
+
 .tdc {width:auto;height: 18px;}
+
 .tdc textarea{
     text-align: left;
     font-size:1px;
@@ -182,16 +197,19 @@ label{margin:0;}
     margin-left:2px;
     margin-bottom:300px;
 }
+
 .cen{
     font-size: 13px;
     text-align: center;
 }
+
 .cen:nth-child(1){
     width: 80px;
 }
 .cen:nth-child(2){
     width: 20px;
 }
+
 .tdf{
     height: 18px;
 }
@@ -225,12 +243,14 @@ label{margin:0;}
 .tdf:nth-child(12){
     width: 65px;
 }
+
 .tdf textarea{
     text-align: left;
     font-size:1px;
     font-family: 宋体,"Times New Roman", Times, serif;
     font-weight:500;
 }
+
 .secBox{
     font-size: smaller;
     height: auto;
@@ -249,6 +269,7 @@ textarea{
     width:inherit;
     height:inherit;
 }
+
 .head tr:first-child{
     width: 100px;
     height: 50px;
