@@ -139,14 +139,17 @@ html{
 #shangBan{
     margin-top:90px;
     margin-left: 2px;
-    margin-bottom: 120px;
+    margin-bottom: 80px;
 }
+
 #person{
     width: 70px;
 }
+
 .tsb{
     width:3%;
 }
+
 .input{
     font-size:larger;
     font-family:"Times New Roman";
@@ -243,6 +246,42 @@ label{margin:0;}
 .tdf:nth-child(12){
     width: 65px;
 }
+/*.tdf:nth-child(1){
+    width:6% ;
+}
+.tdf:nth-child(2){
+     width: 2%;
+ }
+.tdf:nth-child(3){
+    width: 14%;
+}
+.tdf:nth-child(4){
+    width: 10%;
+}
+.tdf:nth-child(5){
+    width: 16%;
+}
+.tdf:nth-child(6){
+    width: 13.9%;
+}
+.tdf:nth-child(7){
+    width: 13.9%;
+}
+.tdf:nth-child(8){
+    width: 5.3%;
+}
+.tdf:nth-child(9){
+    width: 5.8%;
+}
+.tdf:nth-child(10){
+    width:5.8%;
+}
+.tdf:nth-child(11){
+    width:5.8%;
+}
+.tdf:nth-child(12){
+    width:5.8%;
+}*/
 
 .tdf textarea{
     text-align: left;

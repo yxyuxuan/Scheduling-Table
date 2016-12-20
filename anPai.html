@@ -100,7 +100,7 @@
                 <td class="cen">{{day}}日</td>
                 <td class="cen">{{getWeeks(day)}}</td>
                 <td class="tdf" v-for="(workStyle,widX) in workStyles">
-                    <textarea @click="secShowBox(widX,didX)" class="addInput">{{getJobPersons(workStyle,day)}}</textarea>
+                    <textarea @click="secShowBox(widX,didX)" class="addInput" >{{getJobPersons(workStyle,day)}}</textarea>
                     <div :id="'secBox'+widX+'_'+didX" class="secBox">
                         <label v-for="per in getJobAllPersons(workStyle,day)"><input type="checkbox" :value="per" />{{per}}</label><br/>
                         <input id="secSubmit" type="button" value="提交" @click="secSubmitBox(widX, didX,workStyle)" />
