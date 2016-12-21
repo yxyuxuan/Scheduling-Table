@@ -57,9 +57,6 @@
             </thead>
             <tbody id="rows">
                 <tr id="tr" v-for="person in persons">
-                    <!--<td class="td1"><input type="checkbox" class='chk'/></td>
-                    <td class="td2"><input v-model="person.name" class="addInput"></td>
-                    <td class="td3"><input v-model="person.depart" class="addInput" ></td>-->
                     <td class="td1"><input type="checkbox" class='chk'/></td>
                     <td class="td2">{{person.name}}</td>
                     <td class="td3">{{person.depart}}</td>
@@ -87,7 +84,6 @@
             </thead>
             <tbody>
                 <tr v-for="person in persons">
-                    <!--<td id="person"><input v-model="person.name" class="addInput"></td>-->
                     <td class="person">{{person.name}}</td>
                     <td id="work" class="tsb" v-for="day in person.days"><a @click="changeWork(day)" :style="day.work ? 'color: #ff0000' : 'background-color: #00ff00' ">{{day.work}}</a><td id="date" class="tsb">{{getWorkDays(person)}}天</td><td class="tsb">{{getDays()-getWorkDays(person)}}天</td></td>
                 </tr>
@@ -121,82 +117,5 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/vue.js"></script>
 <script src="js/tab.js"></script>
-<script language="JavaScript" type="text/javascript">
-    //第五种方法
-    var idTmr;
-    function  getExplorer() {
-        var explorer = window.navigator.userAgent ;
-        //ie
-        if (explorer.indexOf("MSIE") >= 0) {
-            return 'ie';
-        }
-        //firefox
-        else if (explorer.indexOf("Firefox") >= 0) {
-            return 'Firefox';
-        }
-        //Chrome
-        else if(explorer.indexOf("Chrome") >= 0){
-            return 'Chrome';
-        }
-        //Opera
-        else if(explorer.indexOf("Opera") >= 0){
-            return 'Opera';
-        }
-        //Safari
-        else if(explorer.indexOf("Safari") >= 0){
-            return 'Safari';
-        }
-    }
-    function method5(tableid) {
-        if(getExplorer()=='ie')
-        {
-            var curTbl = document.getElementById(tableid);
-            var oXL = new ActiveXObject("Excel.Application");
-            var oWB = oXL.Workbooks.Add();
-            var xlsheet = oWB.Worksheets(1);
-            var sel = document.body.createTextRange();
-            sel.moveToElementText(curTbl);
-            sel.select();
-            sel.execCommand("Copy");
-            xlsheet.Paste();
-            oXL.Visible = true;
-
-            try {
-                var fname = oXL.Application.GetSaveAsFilename("Excel.xls", "Excel Spreadsheets (*.xls), *.xls");
-            } catch (e) {
-                print("Nested catch caught " + e);
-            } finally {
-                oWB.SaveAs(fname);
-                oWB.Close(savechanges = false);
-                oXL.Quit();
-                oXL = null;
-                idTmr = window.setInterval("Cleanup();", 1);
-            }
-
-        }
-        else
-        {
-            tableToExcel(tableid)
-        }
-    }
-    function Cleanup() {
-        window.clearInterval(idTmr);
-        CollectGarbage();
-    }
-    var tableToExcel = (function() {
-        var uri = 'data:application/vnd.ms-excel;base64,',
-                template = '<html><head><meta charset="UTF-8"></head><body><table>{table}</table></body></html>',
-                base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) },
-                format = function(s, c) {
-                    return s.replace(/{(\w+)}/g,
-                            function(m, p) { return c[p]; }) }
-        return function(table, name) {
-            if (!table.nodeType) table = document.getElementById(table)
-            var ctx = {worksheet: name || 'Worksheet', table: table.outerHTML}
-            window.location.href = uri + base64(format(template, ctx))
-        }
-    })()
-
-</script>
 </body>
 </html>
