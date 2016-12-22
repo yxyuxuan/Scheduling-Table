@@ -198,7 +198,7 @@ label{margin:0;}
 /*工作安排表2*/
 #anPai2{
     margin-top:150px;
-    margin-left:2px;
+    margin-left:1px;
     margin-bottom:300px;
 }
 
@@ -208,7 +208,7 @@ label{margin:0;}
 }
 
 .cen:nth-child(1){
-    width: 80px;
+    width: 56px;
 }
 .cen:nth-child(2){
     width: 20px;
