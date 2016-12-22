@@ -215,11 +215,12 @@ $(function() {
         methods: {
 
             initDays: function () {
-               var today = new Date();
-                var first_day = new Date(today.getFullYear(), today.getMonth(), 1);
+                var year=document.getElementById("year").value;
+                var month=document.getElementById("month").value-1;
+                var first_day = new Date(year, month, 1);
                 for (var i = 0; i < 31; i++) {
                     var date = new Date(first_day.getTime() + i * 86400 * 1000);
-                    if (date.getMonth() != today.getMonth()) {
+                    if (date.getMonth() != month) {
                         break;
                     }
                     for (var j = 0; j < this.persons.length; j++) {
@@ -232,6 +233,7 @@ $(function() {
                     }
                 }
             },
+
 
             filterEnablePositions: function (positions) {
                 return positions.filter(function (x) {
@@ -395,11 +397,12 @@ $(function() {
                     days: []
                 };
 
-                var today = new Date();
-                var first_day = new Date(today.getFullYear(), today.getMonth(), 1);
+                var year=document.getElementById("year").value;
+                var month=document.getElementById("month").value-1;
+                var first_day = new Date(year, month, 1);
                 for (var i = 0; i < 31; i++) {
                     var date = new Date(first_day.getTime() + i * 86400 * 1000);
-                    if (date.getMonth() != today.getMonth()) {
+                    if (date.getMonth() != month) {
                         break;
                     }
 
@@ -437,15 +440,14 @@ $(function() {
             },
 
             getDays: function () {
-                var date = new Date();
-                var year = date.getFullYear();
-                var mouth = date.getMonth() + 1;
+                var year=document.getElementById("year").value;
+                var month = document.getElementById("month").value;
                 var days;
                 //当月份为二月时，根据闰年还是非闰年判断天数
-                if (mouth == 2) {
+                if (month == 2) {
                     days = year % 4 == 0 ? 29 : 28;
                 }
-                else if (mouth == 1 || mouth == 3 || mouth == 5 || mouth == 7 || mouth == 8 || mouth == 10 || mouth == 12) {
+                else if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
                     //月份为：1,3,5,7,8,10,12 时，天数为31；
                     days = 31;
                 }
@@ -464,7 +466,7 @@ $(function() {
 
             getWeeks: function (i) {
                 var week_days = ['日', '一', '二', '三', '四', '五', '六'];
-                return week_days[(new Date(new Date().getFullYear(), new Date().getMonth(), i)).getDay()];
+                return week_days[(new Date(document.getElementById("year").value, document.getElementById("month").value-1, i)).getDay()];
             }
         }
     });
