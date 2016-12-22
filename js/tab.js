@@ -497,7 +497,8 @@ function  getExplorer() {
         return 'Safari';
     }
 }
-function method5(tableid) {
+
+function method(tableid) {
     if(getExplorer()=='ie')
     {
         var curTbl = document.getElementById(tableid);
@@ -529,10 +530,12 @@ function method5(tableid) {
         tableToExcel(tableid)
     }
 }
+
 function Cleanup() {
     window.clearInterval(idTmr);
     CollectGarbage();
 }
+
 var tableToExcel = (function() {
     var uri = 'data:application/vnd.ms-excel;base64,',
         template = '<html><head><meta charset="UTF-8"></head><body><table>{table}</table></body></html>',
@@ -543,6 +546,6 @@ var tableToExcel = (function() {
     return function(table, name) {
         if (!table.nodeType) table = document.getElementById(table);
         var ctx = {worksheet: name || 'Worksheet', table: table.outerHTML};
-        window.location.href = uri + base64(format(template, ctx))
+        window.location.href = uri + base64(format(template, ctx));
     }
 })();

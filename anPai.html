@@ -43,8 +43,7 @@
         <table id="tab3" cellpadding="2" cellspacing="1" border="3" >
             <thead class="head">
             <tr class="th">
-                <th rowspan="2" >月份：{{getMonths()}}月</th>
-                <th rowspan="2" class="cen">部门：</th>
+                <th rowspan="2" colspan="2">月份：{{getMonths()}}月</th>
                 <th v-for="n in getDays()" class="cen">{{n}}日</th>
                 <th rowspan="2">工作：</th>
                 <th rowspan="2">休息：</th>

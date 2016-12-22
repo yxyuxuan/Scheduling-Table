@@ -142,12 +142,9 @@ html{
     margin-bottom: 80px;
 }
 
-.person{
-    width:auto;
-}
 
 .tsb{
-    width:2.9%;
+    width:2.8%;
 }
 
 .input{
@@ -246,42 +243,6 @@ label{margin:0;}
 .tdf:nth-child(12){
     width: 63px;
 }
-/*.tdf:nth-child(1){
-    width:6% ;
-}
-.tdf:nth-child(2){
-     width: 2%;
- }
-.tdf:nth-child(3){
-    width: 14%;
-}
-.tdf:nth-child(4){
-    width: 10%;
-}
-.tdf:nth-child(5){
-    width: 16%;
-}
-.tdf:nth-child(6){
-    width: 13.9%;
-}
-.tdf:nth-child(7){
-    width: 13.9%;
-}
-.tdf:nth-child(8){
-    width: 5.3%;
-}
-.tdf:nth-child(9){
-    width: 5.8%;
-}
-.tdf:nth-child(10){
-    width:5.8%;
-}
-.tdf:nth-child(11){
-    width:5.8%;
-}
-.tdf:nth-child(12){
-    width:5.8%;
-}*/
 
 .tdf textarea{
     text-align: left;
