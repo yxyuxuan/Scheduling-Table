@@ -459,9 +459,9 @@ $(function() {
             },
 
             getMonths: function () {
-                var date = new Date();
-                var mo = date.getMonth();
-                return mo + 1;
+                var year=document.getElementById("year").value;
+                var mo=document.getElementById("month").value;
+                return mo;
             },
 
             getWeeks: function (i) {
